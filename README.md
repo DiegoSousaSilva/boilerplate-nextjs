@@ -142,3 +142,25 @@ Adicione no eslintrc.json:
   "extends": ["plugin:prettier/recomended"]
 }
 ```
+
+##  Configurando Git Hooks com Husky
+
+Primeiro instale o Husky:
+```bash
+yarn add husky --dev
+```
+em seguida rode o comando :
+```bash
+yarn husky install
+```
+Instala o lint-staged:
+
+```bash
+yarn add lint-staged --dev
+```
+Adicione as regras no package.json logo abaixo dos scripts:
+"lint-staged": {
+  "src/**/*": [
+    "yarn lint --fix"
+  ]
+},
