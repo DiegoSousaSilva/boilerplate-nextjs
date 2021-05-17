@@ -2,9 +2,9 @@ import Head from 'next/head'
 
 type Props = {
   title: string
-} 
+}
 
-export default function Home({title = 'Diego Sousa'}: Props) {
+export default function Home({ title = 'Diego Sousa' }: Props) {
   return (
     <div>
       <Head>
@@ -13,9 +13,7 @@ export default function Home({title = 'Diego Sousa'}: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <h1>
-          {title} 
-        </h1>
+      <h1>{title}</h1>
     </div>
   )
 }
