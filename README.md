@@ -83,26 +83,39 @@ instale os plugin do react hooks:
 yarn add eslint-plugin-react-hooks --dev
 ```
 em "plugins" dentro do .eslintrc.json adicione:
+```bash
   "react-hooks"
+  ```
 
 Abaixo de "env" crie:
+```bash
  "settings":{
    "react":{
      "version": "detect"
    }
  },
+ ```
 
 
 Adicione algumas regras em "rules":
+```bash
   "react-hooks/rules-of-hooks": "error",
   "react-hooks/exhaustive-deps": "warn"
+  ```
 ainda em "rules" desative a regra do propTypes:
+```bash
   "react/props-types": "off"
+  ```
 e tambem desabilite o react-in-jsx-scope:
+```bash
   "react/react-in-jsx-scope": "off"
+  ```
 desative a boundary-types:
+```bash
   "@typescript-eslint/explicit-module-boundary-types": "off"
+  ```
   ficara assim:
+  ```bash
     "rules": {
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
@@ -110,7 +123,7 @@ desative a boundary-types:
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off"
     }
-
+  ```
 
 ##  Configurando o Prettier com o Eslint
 
@@ -158,12 +171,13 @@ Instala o lint-staged:
 yarn add lint-staged --dev
 ```
 Adicione as regras no package.json logo abaixo dos scripts:
+```bash
 "lint-staged": {
   "src/**/*": [
     "yarn lint --fix"
   ]
 },
-
+```
 
 ##  Instalando e Configurando Jest com Typescript
 
@@ -174,11 +188,12 @@ yarn add --dev jest @babel/preset-typescript @types/jest
 ```
 
 No eslintrc faça:
-
+```bash
 "env":{
   "jest": true,
   "node": true
 }
+```
 
 Crie o arquivo jest.config.js na raiz do projeto e escreva os comandos:
 ```bash

@@ -1,5 +1,4 @@
 import Main from 'components/Main'
-import Head from 'next/head'
 
 type Props = {
   title: string
