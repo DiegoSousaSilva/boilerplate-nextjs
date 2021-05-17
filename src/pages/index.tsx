@@ -4,8 +4,6 @@ type Props = {
   title: string
 }
 
-const bla = 'cor'
-
 export default function Home({ title = 'Diego Sousa' }: Props) {
   return (
     <div>

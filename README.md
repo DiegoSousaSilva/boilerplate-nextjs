@@ -164,3 +164,57 @@ Adicione as regras no package.json logo abaixo dos scripts:
     "yarn lint --fix"
   ]
 },
+
+
+##  Instalando e Configurando Jest com Typescript
+
+instalar dependencias necessarias:
+
+```bash
+yarn add --dev jest @babel/preset-typescript @types/jest
+```
+
+No eslintrc faça:
+
+"env":{
+  "jest": true,
+  "node": true
+}
+
+Crie o arquivo jest.config.js na raiz do projeto e escreva os comandos:
+```bash
+module.exports = {
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_mudules', '/.next'],
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.ts(x)'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts']
+}
+```
+
+Crie o arquivo .babelrc na raiz do projeto e escreva os comandos:
+```bash
+{
+  "presets": ["next/babel", "@babel/preset-typescript"]
+}
+```
+
+Crie uma pasta na raiz do projeto chamada .jest e crie um arquivo setup.ts
+
+Va no package.json e defina o comando de teste no scripts:
+
+```bash
+{
+  "test": "jest"
+}
+```
+##  Instalando e Configurando React Testing Library
+
+instale as dependencias:
+
+```bash
+yarn add --dev @testing-library/react @testing-library/jest-dom
+```
+import no setup.ts:
+```bash
+import '@testing-library/jest-dom'
