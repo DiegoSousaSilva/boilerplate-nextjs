@@ -242,3 +242,4 @@ Dentro do .babelrc adicione acima de presets:
 ```
 Configuracao do styled component :: dentro de pages crie um novo arquivo _document.tsx
 # boilerplate-nextjs
+# boilerplate-nextjs
