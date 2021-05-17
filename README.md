@@ -1,4 +1,3 @@
-
 ## Passo a Passo
 
 Primeiro , cria o projeto:
@@ -208,6 +207,7 @@ Va no package.json e defina o comando de teste no scripts:
   "test": "jest"
 }
 ```
+
 ##  Instalando e Configurando React Testing Library
 
 instale as dependencias:
@@ -240,6 +240,56 @@ Dentro do .babelrc adicione acima de presets:
     ]
   ],
 ```
-Configuracao do styled component :: dentro de pages crie um novo arquivo _document.tsx
-# boilerplate-nextjs
-# boilerplate-nextjs
+Configuracao do styled component :: dentro de pages crie um novo arquivo _document.tsx e cole o codigo:
+```bash
+import Document from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
+
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      }
+    } finally {
+      sheet.seal()
+    }
+  }
+}
+```
+
+
+
+
+
+
+
+<!--   "husky": {
+    "hook": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail"
+    ]
+  }, -->
+
+
