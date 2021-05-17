@@ -218,3 +218,27 @@ yarn add --dev @testing-library/react @testing-library/jest-dom
 import no setup.ts:
 ```bash
 import '@testing-library/jest-dom'
+```
+
+
+##  Instalando e Configurando Styled-Components
+
+instale as dependencias:
+
+```bash
+yarn add styled-components
+yarn add --dev @types/styled-components babel-plugin-styled-components
+```
+Dentro do .babelrc adicione acima de presets:
+```bash
+  "plugins":[
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": false
+      }
+    ]
+  ],
+```
+Configuracao do styled component :: dentro de pages crie um novo arquivo _document.tsx
+# boilerplate-nextjs
