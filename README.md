@@ -308,3 +308,65 @@ export default class MyDocument extends Document {
   }, -->
 
 
+##  Configurando o PWA
+
+instale o next-pwa:
+
+```bash
+  yarn add next-pwa
+```
+Instale o webpack4 para nao da erro:
+```bash
+  yarn add webpack@4
+```
+
+Crie na raiz do projeto o arquivo next.config.js e adicione o codigo:
+```bash
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withPWA = require('next-pwa')
+const isProd = process.env.NODE_ENV === 'production'
+
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+    disable: !isProd
+  }
+})
+
+```
+crie dentro de public o arquivo manifest.json e adicione o codigo:
+
+``` bash
+{
+  "name": "Diego Sousa Boilerplate",
+  "short_name": "Boilerplate",
+  "icons": [
+    {
+      "src": "/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#06092b",
+  "background_color": "#06092b",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "description": "Boilerplate utilizando Typescript, React, NextJS e Styled Components!"
+}
+```
+
+Em pages dentro de _app.tsx na Head adicione:
+
+```bash
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#06092B" />
+```
+
+Apos isso rode o comando yarn build no terminal para ser gerado o build e entender que esta em producao e rode yarn start para levantar os arquivos de producao.
